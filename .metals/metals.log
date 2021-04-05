@@ -1,0 +1,13 @@
+[0m2021.04.03 22:07:44 INFO  Started: Metals version 0.10.0 in workspace 'C:\Users\Grace\Desktop\Inso Proyect\semester-project-team-12' for client vscode 1.55.0.[0m
+[0m2021.04.03 22:07:45 INFO  time: initialize in 1.88s[0m
+[0m2021.04.03 22:07:46 WARN  Build server is not auto-connectable.[0m
+[0m2021.04.03 22:07:46 WARN  no build tool detected in workspace 'C:\Users\Grace\Desktop\Inso Proyect\semester-project-team-12'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. [0m
+Apr 03, 2021 10:26:02 PM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTraceNotification
+[0m2021.04.04 15:27:34 INFO  shutting down Metals[0m
+[0m2021.04.04 15:29:05 INFO  Started: Metals version 0.10.0 in workspace 'C:\Users\Grace\Desktop\Inso Proyect\semester-project-team-12' for client vscode 1.55.0.[0m
+[0m2021.04.04 15:29:08 INFO  time: initialize in 3.71s[0m
+[0m2021.04.04 15:29:10 WARN  Build server is not auto-connectable.[0m
+[0m2021.04.04 15:29:10 WARN  no build tool detected in workspace 'C:\Users\Grace\Desktop\Inso Proyect\semester-project-team-12'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. [0m
+Apr 04, 2021 8:35:39 PM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTraceNotification

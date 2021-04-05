@@ -3,60 +3,127 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
     <title>Calendar </title>
 
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    
-    <div id="container">
-      <div id="header">
-        <div id="monthDisplay"></div>
-        <div>
-          <button id="backButton">Back</button>
-          <button id="nextButton">Next</button>
-          <button id= "addEvent"> <img src="EventIcon.png" alt="EventIcon" width="25" height="20"> </button>
+    <header>
+      
+    </header>
+    <nav>
+      
+    </nav>
+   <!-- container de todo -->
+  <div id="container-all">
+
+    <!-- calendario -->
+    <div id="container-calendar">
+
+      <div id="container">
+        <div id="header">
+          <div id="monthDisplay"></div>
+          <div id="buttons">
+            <button id="backButton">Back</button>
+            <button id="nextButton">Next</button>
+          </div>
         </div>
+        <button id= "addEvent"> <img src="EventIcon.png" alt="EventIconbtn" width="25" height="20"> </button>
+        <div id="weekdays">
+          <div>Sunday</div>
+          <div>Monday</div>
+          <div>Tuesday</div>
+          <div>Wednesday</div>
+          <div>Thursday</div>
+          <div>Friday</div>
+          <div>Saturday</div>
+        </div>
+  
+        <div id="calendar"></div>
       </div>
+  
+      <div id="newEventModal">
+        <h2>New Event: </h2>
+        <form>
+          
+        <input id="eventTitleInput" placeholder="Event Title" />
+        <label for="event" >  Day and Time: </label>
+         </form>
+         <input type="datetime-local" id="eventTimeInput"
+         name="eventTimeInput" value="1999-12-22T06:00"
+         >
+         <label class="switch"> All Day: <input type="checkbox" id="checkbox"> <!-- Makes event for all day Add by G-->
+          <span class="slider round"></span> <br>
+        </label>
+    <br>
+         <label for="reason">Type:</label><br>
+            <select id="reason" name="reason">
+              
 
-      <div id="weekdays">
-        <div>Sunday</div>
-        <div>Monday</div>
-        <div>Tuesday</div>
-        <div>Wednesday</div>
-        <div>Thursday</div>
-        <div>Friday</div>
-        <div>Saturday</div>
+                <option value="work">work</option>
+                <option value="study">study</option>
+                <option value="relax">relax</option>
+            </select> 
+              <br>
+              
+  
+  
+  
+  <br>
+      <button id="saveButton">Save</button>
+      <button id="cancelButton">Cancel</button>
       </div>
+  
+      <div id="deleteEventModal">
+        <h2>Event</h2>
+        <p id= "eventDay"></p>
+        <p id="eventText"></p>
+        
+  
+        <button id="deleteButton">Delete</button>
+        <button id="closeButton">Close</button>
+      </div>
+  
+      <div id="modalBackDrop"></div>
+  
+      <script src="./script.js"></script>
 
-      <div id="calendar"></div>
+    
     </div>
-
-    <div id="newEventModal">
-      <h2>New Event</h2>
-
-      <input id="eventTitleInput" placeholder="Event Title" />
-      <input type="datetime-local" id="eventTimeInput"
-       name="eventTimeInput" value="2021-04-12 T19:30"
-       min= "currentday"> 
-
-
-
-    <button id="saveButton">Save</button>
-    <button id="cancelButton">Cancel</button>
+    
+    <!-- Todo List -->
+    <div id="container-todolist">
+     
+        <h1>Todo List</h1>
+   
+      <form>
+      <input type= "text" class="todo-input">
+      <div id="together">
+        <button class="todo-button"  type="submit">
+          <em class="fas fa-plus-square"></em>
+      </button>
+      <div class= "select">
+          <!-- select gives a drop down menu -->
+          <select name="todos" class="filter-todo"> 
+          <option value="all">All</option>
+          <option value="completed">Completed</option>
+          <option value="uncompleted">Uncompleted</option>
+          </select>
+      </div>
+      </div>
+      </form>
+        <!-- aqui se guardan los todo items -->
+        <div class="todo-container">
+          <ul class="todo-list"></ul>
+        </div>
+        <script src="./app.js"></script>
+        <script src="./script2.js"></script>
     </div>
-
-    <div id="deleteEventModal">
-      <h2>Event</h2>
-
-      <p id="eventText"></p>
-
-      <button id="deleteButton">Delete</button>
-      <button id="closeButton">Close</button>
-    </div>
-
-    <div id="modalBackDrop"></div>
-
-    <script src="./script.js"></script>
+  
+</div>
+    
   </body>
 </html>
