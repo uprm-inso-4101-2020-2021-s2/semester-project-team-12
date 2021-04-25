@@ -1,19 +1,30 @@
 <?php
   include_once 'header.php';
 ?>
-
+<!--Eduk Logo Icon -->
+<div class= "topleft"> <img src="EdukIcon2.png" height= "70"> </div>
+  <div id= "container-signup" style="position: absolute; top: 0 ; right: 0;"> 
+    <!-- Sign up and Log in buttons -->
+           <?php
+              if (isset($_SESSION["useruid"])) {
+                echo "<a  href='profile.php'> <button> Profile Page </button></a>";
+                echo "<a  href='logout.php'> <button>Logout </button> </a>";
+              }
+              else {
+                 echo"<a href='signup.php'> <button> Sign up  </button> </a>";
+                echo "<a href='login.php'> <button> Log in </button> </a>";
+              }
+            ?> </div>
    <!-- container de todo -->
   <div id="container-all">
 
     <!-- calendario -->
     <div id="container-calendar">
-
+      <div id="quotes"></div>
       <div id="container">
         <div id="header">
           <div id="monthDisplay"></div>
-          <div id="buttons">
-          <a href="signup.php"><button>Sign Up</button></a>
-          <a href="login.php"><button>Log In</button></a>
+          <div>
             <button id="backButton">Back</button>
             <button id="nextButton">Next</button>
           </div>
@@ -58,7 +69,7 @@
               
   
   
-  
+
   <br>
       <button id="saveButton">Save</button>
       <button id="cancelButton">Cancel</button>
@@ -84,7 +95,7 @@
     <!-- Todo List -->
     <div id="container-todolist">
      
-        <h1>Todo List</h1>
+        <h1>Todo List </h1>
    
       <form>
       <input type= "text" class="todo-input">
