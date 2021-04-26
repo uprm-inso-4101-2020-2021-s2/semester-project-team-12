@@ -195,7 +195,8 @@ function initButtons() {
   document.getElementById('cancelButton').addEventListener('click', closeModal);
   document.getElementById('deleteButton').addEventListener('click', deleteEvent);
   document.getElementById('closeButton').addEventListener('click', closeModal);
-}
 
+  // Task Manager Modal
+}
 initButtons();
 load();

@@ -24,6 +24,4 @@ include_once 'includes/functions.inc.php';
       </div>
     </nav>
 
-</html>
-
     

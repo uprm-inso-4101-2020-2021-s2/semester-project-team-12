@@ -67,14 +67,56 @@
             </select> 
               <br>
               
-  
-  
-
+        
   <br>
       <button id="saveButton">Save</button>
       <button id="cancelButton">Cancel</button>
       </div>
-  
+      <!-- Task Manager's Modal -->
+      <div id="newClassModal">
+        <h2>New Class: </h2>
+        <form>
+          <h3> NAME </h3>
+          <input id="classTitleInput" placeholder="Introduction to Software Engineering" />
+
+          <h3> CODE </h3>
+          <input id="classTitleInput" placeholder="INSO 4101" />
+
+          <h3><label for="credit"> CREDITS </label></h3>
+          <select id="credit" name="credit">
+            <option value="one">1</option>
+            <option value="two">2</option>
+            <option value="three">3</option>
+            <option value="four">4</option>
+          </select> 
+              
+          <h3>  DAY </h3>
+          <div class="dayCheck">
+          <input type="checkbox" class="weekDays" id="sunday" name="sunday" value="day">
+          <label for="sunday" class="days"> Sun</label>
+          <input type="checkbox" class="weekDays" id="monday" name="monday" value="day">
+          <label for="monday" class="days"> Mon</label>
+          <input type="checkbox" class="weekDays" id="tuesday" name="tuesday" value="day">
+          <label for="tuesday" class="days"> Tue</label>
+          <input type="checkbox" class="weekDays" id="wednesday" name="wednesday" value="day">
+          <label for="wednesday" class="days"> Wed</label>
+          <input type="checkbox" class="weekDays" id="thursday" name="thursday" value="day">
+          <label for="thursday" class="days"> Thu</label>
+          <input type="checkbox" class="weekDays" id="friday" name="friday" value="day">
+          <label for="friday" class="days"> Fri</label>
+          <input type="checkbox" class="weekDays" id="saturday" name="saturday" value="day">
+          <label for="saturday" class="days"> Sat</label>
+          </div>
+          <br> 
+          <h3>  START TIME </h3>
+          <input type="time">
+          <h3> END TIME </h3>
+          <input type="time">
+        </form>
+        <button id="saveButtonForManager">Save</button>
+        <button id="cancelButtonForManager">Cancel</button>
+      </div>
+
       <div id="deleteEventModal">
         <h2>Event</h2>
         <p id= "eventDay"></p>
@@ -120,7 +162,15 @@
         <script src="./app.js"></script>
         <script src="./script2.js"></script>
     </div>
-  
+
+    <!-- Task Manager -->
+    <div id="container-taskmanager">
+      <h1> Task Manager</h1>
+      <button id="addClass"><em class="fas fa-plus-square"></em></button>
+    </div>
+    <div id="modalBackDropManager"></div>
+
+    <script src="./taskManager.js"></script>
 <?php
   include_once 'footer.php';
 ?>
