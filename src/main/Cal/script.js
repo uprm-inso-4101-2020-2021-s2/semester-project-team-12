@@ -121,7 +121,7 @@ function load() {
 
         daySquare.appendChild(eventDiv);
       }
-
+      // Aqui se añade el feature que te deja ver el evento en ese dia particular
       daySquare.addEventListener('click', () => openModal(dayString));
     } else {
       daySquare.classList.add('padding');

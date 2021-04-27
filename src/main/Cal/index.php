@@ -80,7 +80,7 @@
           <input id="classTitleInput" placeholder="Introduction to Software Engineering" />
 
           <h3> CODE </h3>
-          <input id="classTitleInput" placeholder="INSO 4101" />
+          <input id="classCodeInput" placeholder="INSO 4101" />
 
           <h3><label for="credit"> CREDITS </label></h3>
           <select id="credit" name="credit">
@@ -113,8 +113,8 @@
           <h3> END TIME </h3>
           <input type="time">
         </form>
-        <button id="saveButtonForManager">Save</button>
-        <button id="cancelButtonForManager">Cancel</button>
+        <button id="saveClass">Save</button>
+        <button id="cancelClass">Cancel</button>
       </div>
 
       <div id="deleteEventModal">
@@ -166,7 +166,11 @@
     <!-- Task Manager -->
     <div id="container-taskmanager">
       <h1> Task Manager</h1>
-      <button id="addClass"><em class="fas fa-plus-square"></em></button>
+      <div id="second">
+        <button id="addClass"><em class="fas fa-plus-square"></em></button>
+      <h2> Courses: <h2>
+      </div>
+      
     </div>
     <div id="modalBackDropManager"></div>
 
