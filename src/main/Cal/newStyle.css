@@ -1,0 +1,543 @@
+body {
+  display: flex; 
+  margin-top: 50px;
+  margin:0;
+  height: 100vh;
+  justify-content: center;
+  /* orginal color */
+  background-color: #f5f5f5;
+}
+button {
+  width: 75px;
+  cursor: pointer;
+  box-shadow: 0px 0px 2px grey;
+  border: none;
+  outline: none;
+  padding: 5px;
+  border-radius: 5px;
+  color: rgb(27, 27, 65);  /*test*/
+}
+
+.topleft {
+position: absolute;
+top: 8px;
+left: 16px;
+}
+
+
+#header {
+  padding: 10px;
+  color: #ec6969;
+  font-size: 26px;
+  font-family: sans-serif;
+  display: flex;
+  justify-content: space-between;
+}
+#container {
+  width: 770px;
+}
+#weekdays {
+  width: 100%;
+  display: flex;
+  color: #247BA0;
+ 
+
+}
+#weekdays div {
+  width: 100px;
+  padding: 10px;
+}
+#calendar {
+  width: 100%;
+  margin: auto;
+  margin-left: 0rem;
+  display: flex;
+  flex-wrap: wrap;
+  
+}
+#container-signup{
+  margin-top: 2em;
+  margin-right: 2em;
+}
+.day {
+  width: 100px;
+  padding: 10px;
+  height: 100px;
+  cursor: pointer;
+  box-sizing: border-box;
+  background-color: white;
+  margin: 5px;
+  box-shadow: 0px 0px 3px #5b75be;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.day:hover {
+  background-color: #ff9d76;
+}
+
+
+.day + #currentDay {
+  background-color:#ffd3bf;
+}
+.event {
+  font-size: 10px;
+  padding: 3px;
+  /*background-color: #e45858;*/
+  color: white;
+  border-radius: 5px;
+  max-height: 55px;
+  overflow: hidden;
+}
+input[type="time"]{
+  width: 70%;
+  height: 20px;
+}
+p{
+  margin: 0.5em;
+}
+.class {
+  font-size: 18px;
+  padding: 3px;
+  background-color: white;
+  color: black;
+  border-radius: 5px;
+  max-height: 55px;
+  overflow: scroll;
+  margin-top: 0.5em;
+}
+.events{
+  font-size: 18px;
+  padding: 3px;
+  background-color: white;
+  color: black;
+  border-radius: 5px;
+  max-height: 55px;
+  overflow: scroll;
+  margin-top: 0.5em;
+}
+.padding {
+  cursor: default !important;
+  background-color: #FFFCFF !important;
+  box-shadow: none !important;
+  border-radius: 10%;
+}
+.day{
+  border-radius: 10%;
+}
+#listOfTasks{
+  overflow: scroll;
+  border-radius: 5%;
+  background-color: #f5f5f5;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 1rem;
+  width: 90%;
+  height: 20%;
+}
+
+#newEventModal, #deleteEventModal {
+  display: none;
+  z-index: 20;
+  padding: 25px;
+  background-color: #e8f4fa;
+  box-shadow: 0px 0px 3px black;
+  border-radius: 5px;
+  width: 350px;
+  top: 100px;
+  left: calc(50% - 175px);
+  position: absolute;
+  font-family: sans-serif;
+}
+#classList{
+  display: none;
+  margin-bottom: 25px;
+}
+#eventTitleInput {
+  padding: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 25px;
+  border-radius: 3px;
+  outline: none;
+  border: none;
+  box-shadow: 0px 0px 3px rgb grey;
+}
+/* old code */
+/* button#addEvent {
+  margin-left: 89%;
+} */
+#eventTimeInput { 
+  padding: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 25px;
+  border-radius: 3px;
+  outline: none;
+  border: none;
+  box-shadow: 0px 0px 3px gray;
+}
+
+#eventTitleInput.error {
+  border: 2px solid red;
+}
+#cancelButton, #deleteButton {
+  background-color: #d36c6c;
+}
+#saveButton, #closeButton {
+  background-color: #92a1d1;
+  float: right;
+}
+#eventText {
+  font-size: 15px;
+}
+#eventDay{
+  font-size: 10px;
+}
+#modalBackDrop {
+  display: none;
+  top: 0px;
+  left: 0px;
+  z-index: 10;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  background-color: rgba(0,0,0,0.8);
+}
+#modalBackDropManager{
+  display: none;
+  top: 0px;
+  left: 0px;
+  z-index: 10;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  background-color: rgba(0,0,0,0.8);
+}
+.dayCheck{
+  display: flex;
+
+}
+.weekDays{
+  display: none;
+}
+.days{
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0.5em;
+  border-radius: 10%;
+  background-color: #92a1d1;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+.days:hover{
+  background-color: greenyellow;
+}
+input:checked + .days {
+  background-color: orange;
+}
+
+/* Grid css for todolist and calendar */
+
+#container-all{
+display: grid;
+margin-left: 2%;
+margin-right: 2%;
+width: 100%;
+margin-top: 6rem;
+margin-bottom: 1rem;
+/* alturas:  */
+grid-template-rows: 47% 6% 47%;
+/* ancho: */
+grid-template-columns: 35% 3% 62%; 
+}
+
+#container-calendar{
+display: flex;
+justify-content: center;
+border-radius: 5%;
+background-color: #f5f5f5;
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+/* padding: 2rem; */
+grid-area: 1 / 3 / 5 / 4;
+/* margin-right: 2rem; */
+overflow: scroll;
+}
+#container{
+margin-top: 1em;
+display: grid;
+position: absolute;
+grid-template-rows: 52px 35px 38px 437px;
+grid-template-columns: 10px 114px 486px 75px 75px 10px;
+}
+#header{
+grid-area: 1 / 2 / 2 / 6;
+padding: auto;
+padding-left: 0;
+padding-right:0;
+} 
+#monthDisplay{
+grid-area: 1 / 2 / 2 / 3;
+padding-left: 1.1em;
+padding-top: 0.3em;
+}
+#addEvent{
+grid-area: 2 / 5 / 3 / 6;
+}
+#weekdays{
+grid-area: 3 / 2 / 4 / 6;
+margin-left: 2em;
+}
+#calendar{
+grid-area: 4 / 2 / -1 / 6;
+margin-left: 1.5em;
+}
+#buttons{
+margin-left: 5rem;
+width: 75px;
+cursor: pointer;
+box-shadow: 0px 0px 2px grey;
+}
+#container-todolist{
+overflow: scroll;
+border-radius: 5%;
+background-color: #f5f5f5;
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+padding: 1rem;
+grid-area: 1 / 1 / 2 /2;
+}
+#container-taskmanager{
+border-radius: 5%;
+background-color: #f5f5f5;
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+padding: 1rem;
+grid-area: 3 / 1 / 5 / 2;
+overflow: scroll;
+}
+#newClassModal {
+display: none;
+z-index: 20;
+padding: 25px;
+background-color: #e8f4fa;
+box-shadow: 0px 0px 3px black;
+border-radius: 5px;
+width: 350px;
+top: 100px;
+left: calc(50% - 175px);
+position: absolute;
+font-family: sans-serif;
+}
+div#classInfoModal {
+display: none;
+z-index: 20;
+padding: 25px;
+background-color: #e8f4fa;
+box-shadow: 0px 0px 3px black;
+border-radius: 5px;
+width: 350px;
+top: 100px;
+left: calc(50% - 175px);
+position: absolute;
+font-family: sans-serif;
+}
+div.day{
+width: 95px;
+height: 85px;
+}
+/* Todo List */
+
+h1{
+color: #374A67;
+font-size: 26px;
+font-weight: normal;
+font-family: sans-serif;
+display: flex ;
+justify-content: center;
+align-items: center;
+}
+
+form input{
+width: 96%;
+}
+
+#together{
+display: flex ;
+justify-content: center;
+align-items: center;
+}
+
+form input, form button{
+padding: 0.5rem;
+font-size: 2rem;
+border: none;
+background: white;
+border-radius: 10%;
+}
+
+form button{
+color: #374A67;
+background: white;
+cursor: pointer;
+transition: all 0.3 ease;
+}
+
+form button:hover{
+background: #374A67;
+color: white;
+}
+
+.todo-container{
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.todo-list{
+/* min-width: 30%; */
+width: 90%;
+padding: 0;
+list-style:none;
+}
+
+.todo{
+margin: 0.5rem;
+background: white;
+color: #374A67;
+font-size: 1.5rem;
+display: flex;
+justify-content: space-between;
+align-items: center;
+/* this makes the transition between classes better */
+transition: all 0.5s ease;
+}
+
+.todo li{
+flex: 1;
+}
+
+.trash-btn,
+.complete-btn{
+background: red;
+color: white;
+border: none;
+cursor: pointer;
+font-size: 11px;
+padding: 8px 2px;
+
+}
+
+.filter-todo{
+border-radius: 10%;
+}
+
+div.select{
+border-radius: 10%;
+}
+
+.complete-btn{
+background: rgb(73, 204, 73);
+}
+
+.todo-item {
+padding: 0rem 0.5rem;
+}
+.todo-button{
+display: flex;
+width: 1.2em;
+height: 1.2em;
+justify-content: center;
+align-items: center;
+}
+
+.fa-trash, .fa-check {
+pointer-events: none;
+}
+
+
+.completed{
+text-decoration: line-through;
+opacity: 0.5;
+}
+
+.fall{
+transform: translateY(8rem) rotate3d(1, 2, 6, 180deg);
+opacity: 0;
+}
+
+select{
+-webkit-appearance: none;
+-moz-appearance: none;
+appearance: none;
+outline: none;
+border: none;
+
+}
+
+.select{
+margin: 1rem;
+position: relative;
+overflow: hidden;
+z-index: 0;
+}
+
+select{
+color: #ff6f47;
+width: 10rem;
+cursor: pointer;
+padding: 1rem;
+z-index: 0;
+}
+
+.select::after{
+content:"\25BC";
+position: absolute;
+background: #ff6f47;
+color: #374A67;
+top: 0;
+right: 0;
+padding: 1rem;
+pointer-events: none;
+transition: all 0.3s ease;
+z-index: 0;
+}
+
+.select:hover::after{
+background: white;
+color: #ff6f47;
+z-index: 0;
+}
+#backButton, #nextButton{
+background-color: #ff6f47;
+}
+
+
+/* NAV Y HEADER */
+
+header{
+position: absolute;
+background-color: #374A67;
+width: 63%;
+height: 100vh;
+z-index: -20;
+float:left;
+right: 0;
+}
+
+nav{
+position: absolute;
+background-color: #E15634;
+z-index: -20;
+width: 37%;
+height: 100vh;
+left:0;
+}
+.boton{
+background-color: #ff6f47;
+margin-left: 5rem;
+width: 75px;
+  cursor: pointer;
+  box-shadow: 0px 0px 2px grey;
+  border: none;
+  outline: none;
+  padding: 5px;
+  border-radius: 5px;
+  color: white;
+}

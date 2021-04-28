@@ -44,9 +44,8 @@
       </div>
   
       <div id="newEventModal">
-        <h2>New Event: </h2>
+        <h2>New Event: </h2> <br>
         <form>
-          
         <input id="eventTitleInput" placeholder="Event Title" />
         <label for="event" >  Day and Time: </label>
          </form>
@@ -66,11 +65,18 @@
                 <option value="relax">relax</option>
             </select> 
               <br>
+          <label for="list">Class:</label>
+          <div id="classList">
+            <select id="list" name="list">
+            </select>
+          </div>
               
         
   <br>
-      <button id="saveButton">Save</button>
+        <button id="saveButton">Save</button>
       <button id="cancelButton">Cancel</button>
+      </div>
+      <div id="classInfoModal">
       </div>
       <!-- Task Manager's Modal -->
       <div id="newClassModal">
@@ -79,18 +85,18 @@
           <h3> NAME </h3>
           <input id="classTitleInput" placeholder="Introduction to Software Engineering" />
 
-          <h3> CODE </h3>
+          <p> CODE </p>
           <input id="classCodeInput" placeholder="INSO 4101" />
 
-          <h3><label for="credit"> CREDITS </label></h3>
+          <p><label for="credit"> CREDITS </label></p>
           <select id="credit" name="credit">
-            <option value="one">1</option>
-            <option value="two">2</option>
-            <option value="three">3</option>
-            <option value="four">4</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
           </select> 
               
-          <h3>  DAY </h3>
+          <p>  DAY </p>
           <div class="dayCheck">
           <input type="checkbox" class="weekDays" id="sunday" name="sunday" value="day">
           <label for="sunday" class="days"> Sun</label>
@@ -108,11 +114,12 @@
           <label for="saturday" class="days"> Sat</label>
           </div>
           <br> 
-          <h3>  START TIME </h3>
-          <input type="time">
-          <h3> END TIME </h3>
-          <input type="time">
+          <p>  START TIME </p>
+          <input type="time" id="start">
+          <p> END TIME </p>
+          <input type="time" id="end">
         </form>
+        <br>
         <button id="saveClass">Save</button>
         <button id="cancelClass">Cancel</button>
       </div>
@@ -128,8 +135,9 @@
       </div>
   
       <div id="modalBackDrop"></div>
-  
-      <script src="./script.js"></script>
+      
+      <!-- Class info modal -->
+      <script src="./script3.js"></script>
 
     
     </div>

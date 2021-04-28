@@ -1,5 +1,6 @@
 // Class Modal:
 const newClassModal = document.getElementById('newClassModal');
+const classInfoModal = document.getElementById('classInfoModal');
 const backDrop2 = document.getElementById('modalBackDropManager');
 // Class Modal inputs:
 const newClassName = document.getElementById('classTitleInput');
@@ -14,6 +15,9 @@ const wednesday = document.getElementById('wednesday');
 const thursday = document.getElementById('thursday');
 const friday = document.getElementById('friday');
 const saturday = document.getElementById('saturday');
+// Below are the start and end time of a class:
+const start = document.getElementById('start');
+const end = document.getElementById('end');
 // getting the task manager container:
 const taskManager = document.getElementById('container-taskmanager');
 
@@ -39,6 +43,39 @@ function closeModalManager(){
   newClassModal.style.display = 'none';
   backDrop2.style.display = 'none';
 }
+// Modal for classes:
+function openClassInfo(newClass, days){
+  // classInfoModal.innerHTML
+  let content = "<h2>Class:</h2>" +
+                            "<h3> NAME </h3>" +
+                            newClass.name +
+                            "<h3> CODE </h3>" +
+                            newClass.code +
+                            "<h3> CREDITS </h3>" +
+                            newClass.credits +
+                            "<h3> DAY </h3>" +
+                            days +
+                            '<h3> LIST OF TASK: </h3>' +
+                            '<div id="listOfTasks">';
+  if(localStorage.getItem('events') != null){
+    let events = JSON.parse(localStorage.getItem('events'));
+    events.forEach(function(event){
+      if(event.class == newClass.name){
+        content = content.concat('<div class="events">'+ event.title +'</div>');
+      }
+    });
+    content = content.concat('<div>' +
+    '<button id="closeButton">Cancel</button>');
+    classInfoModal.innerHTML = content;
+  }
+  document.getElementById('closeButton').addEventListener('click', closeClassInfo);
+  classInfoModal.style.display = 'block';
+  backDrop2.style.display = 'block';
+}
+function closeClassInfo(){
+  classInfoModal.style.display = 'none';
+  backDrop2.style.display = 'none';
+}
 // This function saves a class when the saveButton is clicked.
 function saveClass(){
   if(newClassName.value){
@@ -56,7 +93,9 @@ function saveClass(){
       wednesday: wednesday.checked,
       thursday: thursday.checked,
       friday: friday.checked,
-      saturday: saturday.checked
+      saturday: saturday.checked,
+      start: start.value,
+      end: end.value
     };
     displayClass(newClass);
     classes.push(newClass);
@@ -93,7 +132,8 @@ function displayClass(newClass){
   if(days.length != 0){
     days = days.substring(0, days.length - 2);
   }
-  classSquare.innerHTML = newClass.name + "<br>" + days;
+  classSquare.innerHTML = newClass.name + "<br>" + days + '<br>' + newClass.start;
+  classSquare.addEventListener('click', () => openClassInfo(newClass, days));
   taskManager.appendChild(classSquare);
 }
 

@@ -11,7 +11,9 @@ const eventTimeInput = document.getElementById('eventTimeInput'); // G- Add this
 // K - added this as a test, to see how the system gets its input.
 const eventTypeInput = document.getElementById("reason");
 const eventAllInput = document.getElementById("checkbox");
-
+// FOR CLASSES:
+const classesContainer = document.getElementById('classList');
+const classesSelector = document.getElementById('list');
 const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 var dateControl = document.querySelector('input[type="datetime-local"]'); // Add by -G
 
@@ -51,11 +53,20 @@ try{
    deleteEventModal.style.display = 'block'; 
 
   } else {
+    if(localStorage.getItem('classes') != null){
+      let classes = JSON.parse(localStorage.getItem('classes'));
+      let list = '<option value="' + "none" + '">'+ 'none' +'</option>';
+      classes.forEach(function(newClass){
+        list = list.concat('<option value="' + newClass.name + '">'+ newClass.name +'</option>');
+    });
+    classesSelector.innerHTML = list;
+    classesContainer.style.display = "block"; 
+    }
     newEventModal.style.display = 'block';
   }
-
+ 
   backDrop.style.display = 'block';
-
+  
 }
 
 
@@ -151,7 +162,8 @@ function saveEvent() {
       date: clicked, 
       title: eventTitleInput.value,
       type: eventTypeInput.value,
-      check: boolean
+      check: boolean,
+      class: classesSelector.value != null ? classesSelector.value : "none"
     });
 
     localStorage.setItem('events', JSON.stringify(events));
